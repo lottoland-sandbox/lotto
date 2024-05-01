@@ -28,7 +28,7 @@ body {
 }
 
 .progress-bar-inner {
-    background-color: #4CAF50;
+    background-color: #39BFFF; //blue
     height: 100%;
     width: 0;
     border-radius: 5px;
