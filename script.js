@@ -36,7 +36,7 @@ function prevStep(step) {
 
 function updateProgressBar(step) {
     const progressBarInner = document.querySelector('.progress-bar-inner');
-    const fillPercentage = Math.min((step - 1) / 3 * 100, 100);
+    const fillPercentage = Math.min((step - 1) / 4 * 100, 100);
     progressBarInner.style.width = `${fillPercentage}%`;
 }
 
