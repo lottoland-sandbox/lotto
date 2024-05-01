@@ -20,7 +20,7 @@ body {
 }
 
 .progress-bar {
-    background-color: #39BFFF;
+    background-color: #39BFFF; //blue
     height: 20px;
     border-radius: 5px;
     margin-top: 0;
@@ -28,7 +28,7 @@ body {
 }
 
 .progress-bar-inner {
-    background-color: #39BFFF; //blue 
+    background-color: #24E38E; //green
     height: 100%;
     width: 0;
     border-radius: 5px;
