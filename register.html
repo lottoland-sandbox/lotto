@@ -12,6 +12,28 @@ amplitude.init('535a35b01503cd1dc00df9f74f844368', {
         pageViews: false,
     },
 });
+
+
+
+
+// GET URL PARAMETER
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+}
+        
+// PAGE DISPLAY TRACKING *****
+
+var utmCampaign = getUrlParameter('utm_campaign');
+var utmSource = getUrlParameter('utm_source');
+var utmMedium = getUrlParameter('utm_medium');
+var Promo = getUrlParameter('promo');  
+var Affiliate = getUrlParameter('affiliate_id');
+
+    
+    
         
 // PAGE DISPLAY TRACKING *****
 var Feature = 'registration';
