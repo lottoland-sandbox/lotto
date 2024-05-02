@@ -94,7 +94,7 @@ function trackInteraction(event) {
             'Object': trackObject,
             'Category': trackCategory,
             'Value': trackValue,
-            'Status': trackStatus
+            'Status': trackStatus,
             'Feature': Feature,
             'Domain': Domain
         };
