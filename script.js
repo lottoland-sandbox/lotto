@@ -82,7 +82,7 @@ function trackInteraction(event) {
         trackContainer = target.getAttribute('data-track-container') || '';
         trackObject = target.getAttribute('data-track-object') || '';
         trackCategory = target.getAttribute('data-track-category') || '';
-        trackStatus = target.getAttribute('data-track-status') || '';
+        trackOutcome = target.getAttribute('data-track-outcome') || '';
 
         if (trackType === 'focus') {
             trackValue = 'firstfocusin';
@@ -94,7 +94,7 @@ function trackInteraction(event) {
             'Object': trackObject,
             'Category': trackCategory,
             'Value': trackValue,
-            'Status': trackStatus,
+            'Status': trackOutcome,
             'Feature': Feature,
             'Domain': Domain
         };
