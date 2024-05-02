@@ -104,5 +104,5 @@ function trackInteraction(event) {
 }
 
 // Event listeners
-document.addEventListener('focusin', trackInteraction);
+//document.addEventListener('focusin', trackInteraction);
 document.addEventListener('click', trackInteraction);
