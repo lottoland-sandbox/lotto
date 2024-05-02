@@ -71,10 +71,13 @@ function trackInteraction(event) {
     
     if (target.tagName === 'INPUT' && target.hasAttribute('data-track-name')) {
         trackType = 'click';
+        trackValue="firstfocusin";
     } else if (target.tagName === 'A' && target.hasAttribute('data-track-name')) {
         trackType = 'click';
+         trackValue = target.getAttribute('data-track-value') || '';
     } else if (target.tagName === 'BUTTON' && target.hasAttribute('data-track-name')) {
         trackType = 'click';
+         trackValue = target.getAttribute('data-track-value') || '';
     }
 
     if (trackType) {
@@ -83,7 +86,7 @@ function trackInteraction(event) {
         trackObject = target.getAttribute('data-track-object') || '';
         trackCategory = target.getAttribute('data-track-category') || '';
         trackOutcome = target.getAttribute('data-track-outcome') || '';
-        trackValue = target.getAttribute('data-track-value') || '';
+       
 
 
         const event_properties = {
