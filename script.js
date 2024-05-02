@@ -83,7 +83,7 @@ function trackInteraction(event) {
         trackObject = target.getAttribute('data-track-object') || '';
         trackCategory = target.getAttribute('data-track-category') || '';
         trackOutcome = target.getAttribute('data-track-outcome') || '';
-         trackOutcome = target.getAttribute('data-track-value') || '';
+        trackValue = target.getAttribute('data-track-value') || '';
 
 
         const event_properties = {
