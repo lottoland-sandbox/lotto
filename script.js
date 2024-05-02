@@ -70,7 +70,7 @@ function trackInteraction(event) {
     let trackType, trackName, trackContainer, trackObject, trackCategory, trackValue;
     
     if (target.tagName === 'INPUT' && target.hasAttribute('data-track-name')) {
-        trackType = 'focus';
+        trackType = 'click';
     } else if (target.tagName === 'A' && target.hasAttribute('data-track-name')) {
         trackType = 'click';
     } else if (target.tagName === 'BUTTON' && target.hasAttribute('data-track-name')) {
@@ -83,10 +83,8 @@ function trackInteraction(event) {
         trackObject = target.getAttribute('data-track-object') || '';
         trackCategory = target.getAttribute('data-track-category') || '';
         trackOutcome = target.getAttribute('data-track-outcome') || '';
+         trackOutcome = target.getAttribute('data-track-value') || '';
 
-        if (trackType === 'focus') {
-            trackValue = 'firstfocusin';
-        }
 
         const event_properties = {
             'Name': trackName,
