@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Registration Form v1.7</title>
+    <title>Registration Form v1.8</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 
     <script src="https://cdn.amplitude.com/libs/analytics-browser-2.1.3-min.js.gz"></script>
 <script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-1.2.0-min.js.gz"></script>
-<script>
-window.amplitude.init('535a35b01503cd1dc00df9f74f844368')
-const sessionReplayTracking = window.sessionReplay.plugin();
-window.amplitude.add(sessionReplayTracking);
-</script>
+
 
     
 <script type="text/javascript">
@@ -20,6 +16,8 @@ amplitude.init('535a35b01503cd1dc00df9f74f844368', {
     defaultTracking: {
         pageViews: false,
     },
+    const sessionReplayTracking = window.sessionReplay.plugin();
+    window.amplitude.add(sessionReplayTracking);
 });
 
 
