@@ -2,7 +2,7 @@
 <html>
 <head>
     
-    <title>Registration Form Replay 1</title>
+    <title>Registration Form Replay 2</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 
 <script type="text/javascript">
@@ -17,8 +17,8 @@ amplitude.init('535a35b01503cd1dc00df9f74f844368', {
     },
 });
     
-const sessionReplayTracking = sessionReplay.plugin({sampleRate: 1});
-amplitude.add(sessionReplayTracking);
+const sessionReplayTracking = window.sessionReplay.plugin({sampleRate: 1});
+window.amplitude.add(sessionReplayTracking);
 
     
 
