@@ -2,7 +2,7 @@
 <html>
 <head>
     
-    <title>Registration Form v3.3</title>
+    <title>Registration Form v3.4</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 
 <script type="text/javascript">
@@ -13,7 +13,7 @@ amplitude.init('535a35b01503cd1dc00df9f74f844368', {
         pageViews: false,
     },
 });
-const sessionReplayTracking = window.sessionReplay.plugin();
+const sessionReplayTracking = window.sessionReplay.plugin({sampleRate: 1.0});
 window.amplitude.add(sessionReplayTracking);
 
     
