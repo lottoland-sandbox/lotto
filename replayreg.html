@@ -2,7 +2,7 @@
 <html>
 <head>
     
-    <title>Registration Form v3.6</title>
+    <title>Registration Form Replay 1</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 
 <script type="text/javascript">
@@ -11,11 +11,14 @@
 
     
     
-    amplitude.init('535a35b01503cd1dc00df9f74f844368', {
+amplitude.init('535a35b01503cd1dc00df9f74f844368', {
     defaultTracking: {
         pageViews: false,
     },
 });
+    
+const sessionReplayTracking = sessionReplay.plugin({sampleRate: 1});
+amplitude.add(sessionReplayTracking);
 
     
 
