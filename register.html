@@ -2,8 +2,12 @@
 <html>
 <head>
     
-    <title>Registration Form v3.6</title>
+    <title>Registration - Replay 1</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+
+
+<script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-1.2.0-min.js.gz"></script>
+
 
 <script type="text/javascript">
 // INITIALISE TRACKING *****        
@@ -11,11 +15,14 @@
 
     
     
-    amplitude.init('535a35b01503cd1dc00df9f74f844368', {
+amplitude.init('535a35b01503cd1dc00df9f74f844368', {
     defaultTracking: {
         pageViews: false,
     },
 });
+    
+const sessionReplayTracking = window.sessionReplay.plugin({sampleRate: 1});
+window.amplitude.add(sessionReplayTracking);
 
     
 
