@@ -56,8 +56,12 @@ amplitude.track('display', event_properties);
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit" class="submit-btn" onclick="submitForm()" data-track-container="login" data-track-object="button" data-track-name="submit" data-track-outcome="success">Log In (UI Success)</button>
+
+             <button type="submit" class="submit-btn" data-track-container="login" data-track-object="button" data-track-name="submit" >Log in</button>
+
             <button type="submit" class="submit-btn" data-track-container="login" data-track-object="button" data-track-name="submit" data-track-outcome="failure">Log In (UI Failure)</button>
+            <button type="submit" class="submit-btn" onclick="submitForm()" data-track-container="login" data-track-object="button" data-track-name="submit" data-track-outcome="success">Log In (UI Success)</button>
+            
             <a href="#" class="forgot-password" data-track-container="login" data-track-name="forgottenPassword" data-track-category="navigation"  data-track-object="link">Forgot Password?</a>
             <button type="button" class="back-btn" data-track-container="login" data-track-name="register" data-track-category="navigation"  data-track-object="button">Sign Up</button>
         <hr>
