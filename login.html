@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <button class="close-btn" onclick="closeForm()">X</button>
+        </div>
+        <h2>Login</h2>
+        <form>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="submit-btn">Login</button>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+            <button type="button" class="back-btn" onclick="goBack()">Back to Account Menu</button>
+        </form>
+    </div>
+
+    <script>
+        function closeForm() {
+            // Logic to close the form
+            alert('Close button clicked');
+        }
+
+        function goBack() {
+            // Logic to go back to the account menu
+            alert('Back button clicked');
+        }
+    </script>
+</body>
+</html>
