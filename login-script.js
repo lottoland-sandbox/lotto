@@ -22,7 +22,7 @@ function submitForm() {
     }
 
     // Tracking
-    event_properties['Name'] = 'outcome';
+    event_properties['Name'] = 'account';
     event_properties['Domain'] = Domain;
     event_properties['Feature'] = Feature;
     
