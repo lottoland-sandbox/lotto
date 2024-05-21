@@ -25,6 +25,7 @@ function submitForm() {
     event_properties['Name'] = 'outcome';
     event_properties['Domain'] = Domain;
     event_properties['Feature'] = Feature;
+    
     amplitude.track('outcome', event_properties);
 
     // Redirect
