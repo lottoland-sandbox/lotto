@@ -36,7 +36,7 @@ function submitForm() {
 
 function trackInteraction(event) {
     const target = event.target;
-    let trackType, trackName, trackContainer, trackObject, trackCategory, trackValue;
+    let trackType, trackName, trackContainer, trackObject, trackCategory, trackValue; trackOutcome;
     
     if (target.tagName === 'INPUT' && target.hasAttribute('data-track-name')) {
         trackType = 'click';
@@ -69,7 +69,7 @@ function trackInteraction(event) {
             'Domain': Domain
         };
 
-     if (trackName === 'submit' && outcome !== '') {
+     if (trackName === 'submit' && trackOutcome !== '') {
     trackType = 'outcome';
 }
         
