@@ -55,7 +55,10 @@ function trackInteraction(event) {
         trackObject = target.getAttribute('data-track-object') || '';
         trackCategory = target.getAttribute('data-track-category') || '';
         trackOutcome = target.getAttribute('data-track-outcome') || '';
-       
+
+    if (trackName === 'submit' && trackOutcome !== '') {
+        trackType = 'outcome';
+    }
 
 
         const event_properties = {
@@ -69,9 +72,7 @@ function trackInteraction(event) {
             'Domain': Domain
         };
 
-     if (trackName === 'submit' && trackOutcome !== '') {
-    trackType = 'outcome';
-}
+
         
         amplitude.track(trackType, event_properties);
     }
