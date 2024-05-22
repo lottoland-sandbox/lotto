@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form v1.7</title>
+    <title>Login Form v1.8</title>
     <link rel="stylesheet" href="login-styles.css">
 
 
@@ -50,11 +50,12 @@ amplitude.track('display', event_properties);
         <form>
             <div class="input-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" data-track-name="email" data-track-container="login"
+                   data-track-object="field" required>
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" data-track-name="password" data-track-container="login" data-track-object="field" required>
             </div>
 
              <button type="submit" class="submit-btn" data-track-container="login" data-track-object="button" data-track-name="submit" >Log in</button>
