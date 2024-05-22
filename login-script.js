@@ -69,6 +69,10 @@ function trackInteraction(event) {
             'Domain': Domain
         };
 
+     if (trackName === 'submit' && outcome !== '') {
+    trackType = 'outcome';
+}
+        
         amplitude.track(trackType, event_properties);
     }
 }
