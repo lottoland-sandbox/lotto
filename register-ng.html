@@ -21,27 +21,27 @@ amplitude.init('535a35b01503cd1dc00df9f74f844368', {
     },
 });
     
-const sessionReplayTracking = window.sessionReplay.plugin({sampleRate: 1});
-window.amplitude.add(sessionReplayTracking);
+//const sessionReplayTracking = window.sessionReplay.plugin({sampleRate: 1});
+//window.amplitude.add(sessionReplayTracking);
 
     
 
 
     
 // GET URL PARAMETER
-function getUrlParameter(name) {
-    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-    var results = regex.exec(location.search);
-    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+//function getUrlParameter(name) {
+  //  name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+   // var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    //var results = regex.exec(location.search);
+   // return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 }
         
 // PAGE DISPLAY TRACKING *****
-var utmCampaign = getUrlParameter('utm_campaign');
-var utmSource = getUrlParameter('utm_source');
-var utmMedium = getUrlParameter('utm_medium');
-var Promo = getUrlParameter('promo');  
-var Affiliate = getUrlParameter('affiliate_id');
+//var utmCampaign = getUrlParameter('utm_campaign');
+//var utmSource = getUrlParameter('utm_source');
+//var utmMedium = getUrlParameter('utm_medium');
+//var Promo = getUrlParameter('promo');  
+//var Affiliate = getUrlParameter('affiliate_id');
     
     
         
@@ -52,7 +52,6 @@ var event_properties = {
     'Ref': 'REG-01',                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
     'Id': 'step 1',
     'Action': 'displayed',
- 
 };
 amplitude.track('Registration', event_properties);
 
