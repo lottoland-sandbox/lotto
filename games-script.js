@@ -257,6 +257,6 @@ function scratch(clickedElement) {
 
   // Track the event
   amplitude.track("click", event_properties);
-  alert("Quick Picks");
+  alert("Scratch Now");
 }
 
