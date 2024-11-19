@@ -1,4 +1,4 @@
-/* Style for the logo v3 */
+/* Style for the logo v4 */
 .logo {
   max-width: 200px;
   height: auto;
@@ -27,13 +27,13 @@ h2 {
 
 /* Style for the games container */
 .games-container {
-  display: flex;                     /* Flexbox for horizontal layout */
-  justify-content: flex-start;        /* Align the tiles to the start of the container */
-  gap: 20px;                          /* Space between each tile */
-  flex-wrap: wrap;                    /* Allow tiles to wrap to next row if needed */
-  padding: 20px;                      /* Padding inside the container */
-  width: 100%;                        /* Ensure the container spans full width */
-  box-sizing: border-box;             /* Include padding in the total width calculation */
+  display: flex;                      /* Flexbox for horizontal layout */
+  justify-content: flex-start;         /* Align the tiles to the start of the container */
+  gap: 20px;                           /* Space between each tile */
+  flex-wrap: wrap;                     /* Allow tiles to wrap to next row if needed */
+  padding: 20px;                       /* Padding inside the container */
+  width: 100%;                         /* Ensure the container spans full width */
+  box-sizing: border-box;              /* Include padding in the total width calculation */
 }
 
 /* Style for each individual game tile */
@@ -44,9 +44,10 @@ h2 {
   display: flex;                      /* Flexbox for internal content alignment */
   flex-direction: column;             /* Align content vertically inside each tile */
   justify-content: space-between;     /* Distribute space inside the tile */
-  min-width: 200px;                   /* Ensure tiles are at least 200px wide */
-  max-width: 300px;                   /* Prevent tiles from becoming too wide */
+  width: 200px;                       /* Set a fixed width for the tile */
   box-sizing: border-box;             /* Ensures padding is included in width */
+  /* The width should ensure that the tiles are displayed horizontally */
+  /* You can adjust the width if needed */
 }
 
 /* Style for the layout div inside each tile */
