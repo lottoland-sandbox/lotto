@@ -1,80 +1,85 @@
-
-
+/* Style for the logo */
 .logo {
   max-width: 200px;
   height: auto;
   display: block;
   margin: 0 auto;
   margin-bottom: 50px;
-  margin-top:50px;
+  margin-top: 50px;
 }
 
+/* Basic styling for the body */
 body {
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;  /* Align to top to avoid centering everything vertically */
   height: 100vh;
   margin: 0;
   background-color: #f0f2f5;
+  flex-direction: column;   /* Arrange items in a column */
 }
 
-
-
+/* Style for h2 element */
 h2 {
   margin: 0 0 20px 0;
 }
 
 /* Style for the games container */
 .games-container {
-  display: flex;                   /* Use flexbox to align the game tiles in a row */
-  justify-content: space-between;   /* Space out the tiles evenly */
-  gap: 20px;                        /* Space between each tile */
-  flex-wrap: wrap;                  /* Allow wrapping for responsive design */
-  padding: 20px;                    /* Padding inside the container */
+  display: flex;                     /* Use flexbox to align the game tiles in a row */
+  justify-content: flex-start;        /* Align items to the start of the container */
+  gap: 20px;                          /* Space between each tile */
+  flex-wrap: wrap;                    /* Allow wrapping for responsive design */
+  padding: 20px;                      /* Padding inside the container */
+  width: 100%;                        /* Full width of the parent container */
 }
 
 /* Style for each individual game tile */
 .game-tile {
-  background-color: white;          /* White background for each tile */
-  border: 2px solid black;          /* Border around each tile */
-  padding: 10px;                    /* Padding inside each tile */
-  width: 23%;                       /* Each tile takes up about 1/4th of the container */
-  box-sizing: border-box;           /* Ensures padding and borders are included in width calculation */
-  display: flex;                    /* Flexbox for internal content alignment */
-  flex-direction: column;           /* Align content vertically within each tile */
-  justify-content: space-between;   /* Distribute space inside the tile */
+  background-color: white;            /* White background for each tile */
+  border: 2px solid black;            /* Border around each tile */
+  padding: 10px;                      /* Padding inside each tile */
+  display: flex;                      /* Flexbox for internal content alignment */
+  flex-direction: column;             /* Align content vertically within each tile */
+  justify-content: space-between;     /* Distribute space inside the tile */
+  box-sizing: border-box;             /* Ensure padding and borders are included in width calculation */
+  min-width: 200px;                   /* Set a minimum width to ensure tiles are not too small */
+  max-width: 300px;                   /* Set a maximum width to prevent tiles from getting too large */
+  flex-grow: 1;                       /* Allow tiles to grow and fill available space */
 }
 
 /* Style for the layout div inside each tile */
-#layout {
-  background-color: yellow;         /* Yellow background for the layout */
-  border: 2px solid black;          /* Border around the layout div */
-  margin-bottom: 10px;               /* Space between layout and buttons */
-  padding: 10px;                     /* Padding inside the layout box */
+.layout {
+  background-color: yellow;          /* Yellow background for the layout */
+  border: 2px solid black;           /* Border around the layout div */
+  margin-bottom: 10px;                /* Space between layout and buttons */
+  padding: 10px;                      /* Padding inside the layout box */
 }
 
 /* Style for the buttons inside each tile */
 button {
-  background-color: #4CAF50;         /* Green background for the buttons */
-  color: white;                      /* White text */
-  border: none;                      /* Remove border */
-  padding: 10px 20px;                /* Padding inside the button */
-  cursor: pointer;                  /* Cursor changes to pointer on hover */
-  margin: 5px 0;                     /* Margin between buttons */
+  background-color: #4CAF50;          /* Green background for the buttons */
+  color: white;                       /* White text */
+  border: none;                       /* Remove border */
+  padding: 10px 20px;                 /* Padding inside the button */
+  cursor: pointer;                   /* Cursor changes to pointer on hover */
+  margin: 5px 0;                      /* Margin between buttons */
 }
 
 button:hover {
-  background-color: #45a049;         /* Darker green when hovered */
+  background-color: #45a049;          /* Darker green when hovered */
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
   .games-container {
-    flex-direction: column;          /* Stack tiles vertically on smaller screens */
+    flex-direction: column;           /* Stack tiles vertically on smaller screens */
+    align-items: center;              /* Center the tiles when stacking vertically */
   }
 
   .game-tile {
-    width: 100%;                     /* Make each tile take up full width on smaller screens */
+    width: 100%;                      /* Make each tile take up full width on smaller screens */
+    max-width: none;                  /* Remove max-width to let it take the full width */
   }
 }
