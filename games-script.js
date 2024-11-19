@@ -3,28 +3,43 @@ document.addEventListener("DOMContentLoaded", () => {
   const gameTiles = document.querySelectorAll(".card");
 
   gameTiles.forEach((tile, index) => {
-    // Get the label text (if present)
+    // Check if the tile or its child elements have `data-track-*` attributes
+    const hasDataTrackAttributes =
+      Array.from(tile.attributes).some(attr => attr.name.startsWith("data-track-")) ||
+      Array.from(tile.querySelectorAll("*")).some(element =>
+        Array.from(element.attributes).some(attr => attr.name.startsWith("data-track-"))
+      );
+
+    // If no data-track attributes, skip this tile
+    if (!hasDataTrackAttributes) return;
+
+    // Get data-track attributes for the card
+    const trackProduct = tile.getAttribute("data-track-product") || "No data-track-product";
+    const trackContainer = tile.getAttribute("data-track-container") || "No data-track-container";
+
+    // Get the label text and its data-track attributes (if present)
     const label = tile.querySelector(".label");
     const labelText = label ? label.textContent.trim() : "No Label";
+    const labelTrackCategory = label ? label.getAttribute("data-track-category") || "No data-track-category" : "No data-track-category";
 
-    // Get the header text
+    // Get the header text and its data-track attributes (if present)
     const header = tile.querySelector(".header");
     const headerText = header ? header.textContent.trim() : "No Header";
+    const headerTrackDescription = header ? header.getAttribute("data-track-description") || "No data-track-description" : "No data-track-description";
 
     // Get the amount text
     const amount = tile.querySelector(".amount");
     const amountText = amount ? amount.textContent.trim() : "No Amount";
-
-    // Get data-track attributes
-    const trackProduct = tile.getAttribute("data-track-product") || "No data-track-product";
-    const trackCategory = label ? label.getAttribute("data-track-category") || "No data-track-category" : "No data-track-category";
 
     // Log the values to the console
     console.log(`Tile ${index + 1}:`);
     console.log(`  Label: ${labelText}`);
     console.log(`  Header: ${headerText}`);
     console.log(`  Amount: ${amountText}`);
+    
+    console.log(`  data-track-container: ${trackContainer}`);
+    console.log(`  data-track-category: ${labelTrackCategory}`);
     console.log(`  data-track-product: ${trackProduct}`);
-    console.log(`  data-track-category: ${trackCategory}`);
+    console.log(`  data-track-description: ${headerTrackDescription}`);
   });
 });
