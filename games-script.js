@@ -14,53 +14,47 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!hasDataTrackAttributes) return;
 
     // Get data-track attributes for the card
-    var trackProduct = tile.getAttribute("data-track-product") || "";
-    var trackContainer = tile.getAttribute("data-track-container") || "";
+    const trackProduct = tile.getAttribute("data-track-product") || "";
+    const trackContainer = tile.getAttribute("data-track-container") || "";
 
     // Get the label text and its data-track attributes (if present)
-    var label = tile.querySelector(".label");
-    var labelText = label ? label.textContent.trim() : "No Label";
-    var labelTrackCategory = label ? label.getAttribute("data-track-category") || "" : "";
+    const label = tile.querySelector(".label");
+    const labelText = label ? label.textContent.trim() : "No Label";
+    const labelTrackCategory = label ? label.getAttribute("data-track-category") || "" : "";
 
     // Get the header text and its data-track attributes (if present)
-    var header = tile.querySelector(".header");
-    var headerText = header ? header.textContent.trim() : "No Header";
-    var headerTrackDescription = header ? header.getAttribute("data-track-description") || "" : "";
+    const header = tile.querySelector(".header");
+    const headerText = header ? header.textContent.trim() : "No Header";
+    const headerTrackDescription = header ? header.getAttribute("data-track-description") || "" : "";
 
     // Get the amount text
-    var amount = tile.querySelector(".amount");
-    var amountText = amount ? amount.textContent.trim() : "No Amount";
+    const amount = tile.querySelector(".amount");
+    const amountText = amount ? amount.textContent.trim() : "No Amount";
 
     // Log the values to the console
     console.log(`Tile ${index + 1}:`);
-    
     console.log(`  Amount: ${amountText}`);
-
     console.log(`  data-track-container: ${trackContainer}`);
     console.log(`  data-track-category: ${labelTrackCategory}`);
     console.log(`  data-track-subcategory: ${labelText}`);
     console.log(`  data-track-product: ${trackProduct}`);
     console.log(`  data-track-description: ${headerTrackDescription}`);
 
-    // Tracking
-    var Feature = 'games';
-    var Domain="www.lotto.com";  
-    event_properties['Domain'] = Domain;
-    event_properties['Feature'] = Feature;
+    // Create a new event_properties object for each tile
+    const event_properties = {
+      Domain: "www.lotto.com",
+      Feature: "games",
+      Object: "tile",
+      Container: trackContainer,
+      Category: labelTrackCategory,
+      Subcategory: labelText,
+      Genre: "lottery",
+      Product: trackProduct,
+      Description: headerTrackDescription,
+    };
 
-    
-    event_properties['Object'] = "tile";
-    event_properties['Container'] = trackContainer;
-    event_properties['Category'] = labelTrackCategory;
-    event_properties['Subcategory'] = labelText;
-    event_properties['Genre'] = "lottery";
-    event_properties['Product'] = trackProduct;
-    event_properties['Description'] = headerTrackDescription;
-    
-    alert(event_properties);
-    amplitude.track('impression', event_properties);
-
-
-    
+    // Alert and track the event
+    alert(JSON.stringify(event_properties));
+    amplitude.track("impression", event_properties);
   });
 });
