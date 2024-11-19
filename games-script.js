@@ -33,12 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Log the values to the console
     console.log(`Tile ${index + 1}:`);
-    console.log(`  Label: ${labelText}`);
-    console.log(`  Header: ${headerText}`);
-    console.log(`  Amount: ${amountText}`);
     
+    console.log(`  Amount: ${amountText}`);
+
     console.log(`  data-track-container: ${trackContainer}`);
     console.log(`  data-track-category: ${labelTrackCategory}`);
+    console.log(`  data-track-subcategory: ${labelText}`);
     console.log(`  data-track-product: ${trackProduct}`);
     console.log(`  data-track-description: ${headerTrackDescription}`);
   });
