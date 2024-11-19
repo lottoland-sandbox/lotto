@@ -14,22 +14,22 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!hasDataTrackAttributes) return;
 
     // Get data-track attributes for the card
-    const trackProduct = tile.getAttribute("data-track-product") || "";
-    const trackContainer = tile.getAttribute("data-track-container") || "";
+    var trackProduct = tile.getAttribute("data-track-product") || "";
+    var trackContainer = tile.getAttribute("data-track-container") || "";
 
     // Get the label text and its data-track attributes (if present)
-    const label = tile.querySelector(".label");
-    const labelText = label ? label.textContent.trim() : "No Label";
-    const labelTrackCategory = label ? label.getAttribute("data-track-category") || "" : "";
+    var label = tile.querySelector(".label");
+    Var labelText = label ? label.textContent.trim() : "No Label";
+    var labelTrackCategory = label ? label.getAttribute("data-track-category") || "" : "";
 
     // Get the header text and its data-track attributes (if present)
-    const header = tile.querySelector(".header");
-    const headerText = header ? header.textContent.trim() : "No Header";
-    const headerTrackDescription = header ? header.getAttribute("data-track-description") || "" : "";
+    var header = tile.querySelector(".header");
+    var headerText = header ? header.textContent.trim() : "No Header";
+    var headerTrackDescription = header ? header.getAttribute("data-track-description") || "" : "";
 
     // Get the amount text
-    const amount = tile.querySelector(".amount");
-    const amountText = amount ? amount.textContent.trim() : "No Amount";
+    var amount = tile.querySelector(".amount");
+    var amountText = amount ? amount.textContent.trim() : "No Amount";
 
     // Log the values to the console
     console.log(`Tile ${index + 1}:`);
