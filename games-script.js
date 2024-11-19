@@ -14,18 +14,18 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!hasDataTrackAttributes) return;
 
     // Get data-track attributes for the card
-    const trackProduct = tile.getAttribute("data-track-product") || "No data-track-product";
-    const trackContainer = tile.getAttribute("data-track-container") || "No data-track-container";
+    const trackProduct = tile.getAttribute("data-track-product") || "";
+    const trackContainer = tile.getAttribute("data-track-container") || "";
 
     // Get the label text and its data-track attributes (if present)
     const label = tile.querySelector(".label");
     const labelText = label ? label.textContent.trim() : "No Label";
-    const labelTrackCategory = label ? label.getAttribute("data-track-category") || "No data-track-category" : "No data-track-category";
+    const labelTrackCategory = label ? label.getAttribute("data-track-category") || "" : "";
 
     // Get the header text and its data-track attributes (if present)
     const header = tile.querySelector(".header");
     const headerText = header ? header.textContent.trim() : "No Header";
-    const headerTrackDescription = header ? header.getAttribute("data-track-description") || "No data-track-description" : "No data-track-description";
+    const headerTrackDescription = header ? header.getAttribute("data-track-description") || "" : "";
 
     // Get the amount text
     const amount = tile.querySelector(".amount");
