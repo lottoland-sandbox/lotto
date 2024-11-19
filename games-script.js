@@ -41,5 +41,25 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(`  data-track-subcategory: ${labelText}`);
     console.log(`  data-track-product: ${trackProduct}`);
     console.log(`  data-track-description: ${headerTrackDescription}`);
+
+    // Tracking
+    
+    event_properties['Domain'] = Domain;
+    event_properties['Feature'] = Feature;
+
+    
+    event_properties['Object'] = "tile";
+    event_properties['Container'] = trackContainer;
+    event_properties['Category'] = labelTrackCategory;
+    event_properties['Subcategory'] = labelText;
+    event_properties['Genre'] = "lottery";
+    event_properties['Product'] = trackProduct;
+    event_properties['Description'] = headerTrackDescription;
+    
+    
+    amplitude.track('impression', event_properties);
+
+
+    
   });
 });
