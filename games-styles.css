@@ -1,89 +1,67 @@
-/* Style for the logo v4 */
-.logo {
-  max-width: 200px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 50px;
-  margin-top: 50px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Basic styling for the body */
 body {
   font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
   display: flex;
-  justify-content: flex-start;  /* Align to the start */
-  align-items: flex-start;      /* Align to the top */
-  height: 100%;                 /* Full viewport height */
-  margin: 0;
-  background-color: #f0f2f5;
-  /* Removed flex-direction: column to keep elements horizontally aligned */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-/* Style for h2 element */
-h2 {
-  margin: 0 0 20px 0;
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 80%;
 }
 
-/* Style for the games container */
-.games-container {
-  display: flex;                      /* Flexbox for horizontal layout */
-  justify-content: flex-start;         /* Align the tiles to the start of the container */
-  gap: 20px;                           /* Space between each tile */
-  flex-wrap: wrap;                     /* Allow tiles to wrap to next row if needed */
-  padding: 20px;                       /* Padding inside the container */
-  width: 100%;                         /* Ensure the container spans full width */
-  box-sizing: border-box;              /* Include padding in the total width calculation */
+.card {
+  background: #ffffff;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Style for each individual game tile */
-.game-tile {
-  background-color: white;            /* White background for each tile */
-  border: 2px solid black;            /* Border around each tile */
-  padding: 10px;                      /* Padding inside each tile */
-  display: flex;                      /* Flexbox for internal content alignment */
-  flex-direction: column;             /* Align content vertically inside each tile */
-  justify-content: space-between;     /* Distribute space inside the tile */
-  width: 200px;                       /* Set a fixed width for the tile */
-  box-sizing: border-box;             /* Ensures padding is included in width */
-  /* The width should ensure that the tiles are displayed horizontally */
-  /* You can adjust the width if needed */
-}
-
-/* Style for the layout div inside each tile */
-.layout {
-  background-color: yellow;          /* Yellow background for the layout */
-  border: 2px solid black;           /* Border around the layout div */
-  margin-bottom: 10px;                /* Space between layout and buttons */
-}
-
-/* Style for the header */
 .header {
-  width: 100%;
-  text-align: center;                 /* Center the logo */
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-/* Style for the buttons */
+.amount {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
 button {
-  padding: 10px 20px;                 /* Padding inside buttons */
-  margin: 5px 0;                      /* Space between buttons */
-  background-color: #4CAF50;          /* Green background */
-  color: white;                       /* White text */
+  padding: 10px 15px;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 0.9rem;
 }
 
-button:hover {
-  background-color: #45a049;          /* Darker green on hover */
+.play-now {
+  background-color: #ff4d4d;
+  color: white;
 }
 
-/* Style for section headers */
-h3, h4 {
-  margin: 10px 0;
-}
-
-/* Ensure buttons are spaced and not stretching */
-button + button {
-  margin-top: 10px;  /* Add space between the two buttons in each tile */
+.quick-picks {
+  background-color: #ffcc00;
+  color: white;
 }
