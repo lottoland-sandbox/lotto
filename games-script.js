@@ -159,3 +159,104 @@ function play(clickedElement) {
   amplitude.track("click", event_properties);
   alert("Play Now");
 }
+
+function quickPicks(clickedElement) {
+  // Find the parent card element
+  const card = clickedElement.closest(".card");
+
+  if (!card) {
+    console.error("Card element not found!");
+    return;
+  }
+
+  // Get data-track attributes for the card
+  const trackProduct = card.getAttribute("data-track-product") || "";
+  const trackContainer = card.getAttribute("data-track-container") || "";
+
+  // Get the label text and its data-track attributes
+  const label = card.querySelector(".label");
+  const labelText = label ? label.textContent.trim() : "No Label";
+  const labelTrackCategory = label ? label.getAttribute("data-track-category") || "" : "";
+
+  // Get the header text and its data-track attributes
+  const header = card.querySelector(".header");
+  const headerText = header ? header.textContent.trim() : "No Header";
+  const headerTrackDescription = header ? header.getAttribute("data-track-description") || "" : "";
+
+  // Get the amount text
+  const amount = card.querySelector(".amount");
+  const amountText = amount ? amount.textContent.trim() : "No Amount";
+
+  // Create a new event_properties object
+  const event_properties = {
+    Domain: "www.lotto.com",
+    Feature: "games",
+    Object: "button",
+    Container: trackContainer,
+    Category: labelTrackCategory,
+    Subcategory: labelText,
+    Name: "quickPicks",
+    Genre: "lottery",
+    Product: trackProduct,
+    Description: headerTrackDescription,
+
+  };
+
+  // Log the properties for debugging
+  console.log("Tracked Event Properties:", event_properties);
+
+  // Track the event
+  amplitude.track("click", event_properties);
+  alert("Quick Picks");
+}
+
+function scratch(clickedElement) {
+  // Find the parent card element
+  const card = clickedElement.closest(".card");
+
+  if (!card) {
+    console.error("Card element not found!");
+    return;
+  }
+
+  // Get data-track attributes for the card
+  const trackProduct = card.getAttribute("data-track-product") || "";
+  const trackContainer = card.getAttribute("data-track-container") || "";
+
+  // Get the label text and its data-track attributes
+  const label = card.querySelector(".label");
+  const labelText = label ? label.textContent.trim() : "No Label";
+  const labelTrackCategory = label ? label.getAttribute("data-track-category") || "" : "";
+
+  // Get the header text and its data-track attributes
+  const header = card.querySelector(".header");
+  const headerText = header ? header.textContent.trim() : "No Header";
+  const headerTrackDescription = header ? header.getAttribute("data-track-description") || "" : "";
+
+  // Get the amount text
+  const amount = card.querySelector(".amount");
+  const amountText = amount ? amount.textContent.trim() : "No Amount";
+
+  // Create a new event_properties object
+  const event_properties = {
+    Domain: "www.lotto.com",
+    Feature: "games",
+    Object: "button",
+    Container: trackContainer,
+    Category: labelTrackCategory,
+    Subcategory: labelText,
+    Name: "play",
+    Genre: "lottery",
+    Product: trackProduct,
+    Description: headerTrackDescription,
+
+  };
+
+  // Log the properties for debugging
+  console.log("Tracked Event Properties:", event_properties);
+
+  // Track the event
+  amplitude.track("click", event_properties);
+  alert("Quick Picks");
+}
+
