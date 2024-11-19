@@ -25,3 +25,56 @@ h2 {
   margin: 0 0 20px 0;
 }
 
+.games-container {
+  background-color: yellow;  /* Yellow background for the layout */
+  border: 2px solid black;   /* Border around the entire container */
+  padding: 20px;             /* Padding inside the container */
+  display: flex;             /* Use flexbox to align the game tiles in a row */
+  justify-content: space-between;  /* Space out the tiles evenly */
+  gap: 20px;                 /* Space between each tile */
+  flex-wrap: wrap;           /* Allow wrapping for responsive design */
+}
+
+/* Style for each individual game tile */
+.game-tile {
+  background-color: white;  /* White background for each tile */
+  border: 2px solid black;  /* Border around each tile */
+  padding: 10px;            /* Padding inside each tile */
+  width: 23%;               /* Each tile takes up about 1/4th of the container */
+  box-sizing: border-box;   /* Ensures padding and borders are included in width calculation */
+  display: flex;            /* Flexbox for internal content alignment */
+  flex-direction: column;   /* Align content vertically within each tile */
+  justify-content: space-between; /* Distribute space inside the tile */
+}
+
+/* Style for the layout div inside each tile */
+#layout {
+  margin-bottom: 10px;      /* Space between layout and buttons */
+  padding: 10px;            /* Padding inside the layout box */
+  border: 1px dashed gray;  /* Dashed border for the layout section */
+}
+
+/* Style for the buttons inside each tile */
+button {
+  background-color: #4CAF50;  /* Green background for the buttons */
+  color: white;               /* White text */
+  border: none;               /* Remove border */
+  padding: 10px 20px;         /* Padding inside the button */
+  cursor: pointer;           /* Cursor changes to pointer on hover */
+  margin: 5px 0;              /* Margin between buttons */
+}
+
+button:hover {
+  background-color: #45a049;  /* Darker green when hovered */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .games-container {
+    flex-direction: column;  /* Stack tiles vertically on smaller screens */
+  }
+
+  .game-tile {
+    width: 100%;  /* Make each tile take up full width on smaller screens */
+  }
+}
