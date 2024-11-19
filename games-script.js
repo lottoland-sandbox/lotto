@@ -106,4 +106,5 @@ function trackCardData(clickedElement) {
 
   // Track the event
   amplitude.track("click", event_properties);
+  alert(labelText);
 }
