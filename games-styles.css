@@ -1,4 +1,4 @@
-/* Style for the logo v2 */
+/* Style for the logo v3 */
 .logo {
   max-width: 200px;
   height: auto;
@@ -30,7 +30,7 @@ h2 {
   display: flex;                     /* Flexbox for horizontal layout */
   justify-content: flex-start;        /* Align the tiles to the start of the container */
   gap: 20px;                          /* Space between each tile */
-  flex-wrap: wrap;                    /* Allow tiles to wrap to the next row if needed */
+  flex-wrap: wrap;                    /* Allow tiles to wrap to next row if needed */
   padding: 20px;                      /* Padding inside the container */
   width: 100%;                        /* Ensure the container spans full width */
   box-sizing: border-box;             /* Include padding in the total width calculation */
@@ -54,4 +54,35 @@ h2 {
   background-color: yellow;          /* Yellow background for the layout */
   border: 2px solid black;           /* Border around the layout div */
   margin-bottom: 10px;                /* Space between layout and buttons */
+}
+
+/* Style for the header */
+.header {
+  width: 100%;
+  text-align: center;                 /* Center the logo */
+}
+
+/* Style for the buttons */
+button {
+  padding: 10px 20px;                 /* Padding inside buttons */
+  margin: 5px 0;                      /* Space between buttons */
+  background-color: #4CAF50;          /* Green background */
+  color: white;                       /* White text */
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #45a049;          /* Darker green on hover */
+}
+
+/* Style for section headers */
+h3, h4 {
+  margin: 10px 0;
+}
+
+/* Ensure buttons are spaced and not stretching */
+button + button {
+  margin-top: 10px;  /* Add space between the two buttons in each tile */
 }
