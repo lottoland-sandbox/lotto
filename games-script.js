@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Alert and track the event
-    alert(JSON.stringify(event_properties));
+    //alert(JSON.stringify(event_properties));
     amplitude.track("impression", event_properties);
   });
 });
