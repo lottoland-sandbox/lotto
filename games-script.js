@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Get the label text and its data-track attributes (if present)
     var label = tile.querySelector(".label");
-    Var labelText = label ? label.textContent.trim() : "No Label";
+    var labelText = label ? label.textContent.trim() : "No Label";
     var labelTrackCategory = label ? label.getAttribute("data-track-category") || "" : "";
 
     // Get the header text and its data-track attributes (if present)
