@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     event_properties['Product'] = trackProduct;
     event_properties['Description'] = headerTrackDescription;
     
-    
+    alert(event_properties);
     amplitude.track('impression', event_properties);
 
 
