@@ -1,4 +1,4 @@
-/* Style for the logo */
+/* Style for the logo v2 */
 .logo {
   max-width: 200px;
   height: auto;
@@ -17,7 +17,7 @@ body {
   height: 100%;                 /* Full viewport height */
   margin: 0;
   background-color: #f0f2f5;
-  flex-direction: column;       /* Stack child elements (logo and container) vertically */
+  /* Removed flex-direction: column to keep elements horizontally aligned */
 }
 
 /* Style for h2 element */
@@ -30,7 +30,7 @@ h2 {
   display: flex;                     /* Flexbox for horizontal layout */
   justify-content: flex-start;        /* Align the tiles to the start of the container */
   gap: 20px;                          /* Space between each tile */
-  flex-wrap: wrap;                    /* Allow tiles to wrap to next row if needed */
+  flex-wrap: wrap;                    /* Allow tiles to wrap to the next row if needed */
   padding: 20px;                      /* Padding inside the container */
   width: 100%;                        /* Ensure the container spans full width */
   box-sizing: border-box;             /* Include padding in the total width calculation */
@@ -54,4 +54,4 @@ h2 {
   background-color: yellow;          /* Yellow background for the layout */
   border: 2px solid black;           /* Border around the layout div */
   margin-bottom: 10px;                /* Space between layout and buttons */
-  p
+}
