@@ -43,7 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(`  data-track-description: ${headerTrackDescription}`);
 
     // Tracking
-    
+    var Feature = 'games';
+    var Domain="www.lotto.com";  
     event_properties['Domain'] = Domain;
     event_properties['Feature'] = Feature;
 
