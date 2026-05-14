@@ -26,7 +26,10 @@ g.log=function(b,d){h("log",{level:b,msg:d})},g.consent=function(b){h("setIdenti
 f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){return g._w[s].apply(this,arguments)}),g._v="2.0.0")
 }(window,document,window._fs_namespace,"script",window._fs_script);
 </script>
+
+
   <title>Set Your Wager</title>
+
   <style>
     :root{
       --bg:#eaf4ff;
@@ -48,6 +51,7 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
     }
 
     *{box-sizing:border-box}
+
     body{
       margin:0;
       background:var(--bg);
@@ -84,6 +88,7 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
       font-weight:800;
       color:var(--navy);
     }
+
     .subtitle{
       margin:0;
       font-size:12px;
@@ -96,6 +101,7 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
       margin-top:22px;
       padding:0 14px 8px;
     }
+
     .slider-row{
       display:grid;
       grid-template-columns: 32px 1fr 38px;
@@ -103,6 +109,7 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
       gap:14px;
       margin-top:18px;
     }
+
     .minmax{
       font-size:18px;
       font-weight:800;
@@ -112,32 +119,37 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
 
     .slider{
       position:relative;
-      height:18px;
+      height:58px;
     }
+
     .track{
       position:absolute;
       left:0; right:0;
-      top:50%;
-      transform:translateY(-50%);
+      top:31px;
       height:7px;
       border-radius:999px;
-      background:linear-gradient(90deg, var(--green) 0 75%, #e2edf8 75% 100%);
+      background:linear-gradient(90deg, var(--green) 0 50%, #e2edf8 50% 100%);
+      pointer-events:none;
     }
+
     .thumb{
       position:absolute;
-      left:75%;
-      top:50%;
-      transform:translate(-50%,-50%);
+      left:50%;
+      top:24px;
+      transform:translateX(-50%);
       width:30px;
       height:30px;
       border-radius:50%;
       background:var(--green);
       box-shadow:0 4px 10px rgba(24,212,139,.35);
+      pointer-events:none;
+      z-index:2;
     }
+
     .bubble{
       position:absolute;
-      left:75%;
-      top:-34px;
+      left:50%;
+      top:-2px;
       transform:translateX(-50%);
       background:#9fd8ff;
       color:#0f2078;
@@ -146,7 +158,11 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
       padding:8px 10px;
       border-radius:5px;
       box-shadow:0 4px 12px rgba(44,123,229,.12);
+      pointer-events:none;
+      z-index:2;
+      white-space:nowrap;
     }
+
     .bubble::after{
       content:"";
       position:absolute;
@@ -159,6 +175,56 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
       border-top:7px solid #9fd8ff;
     }
 
+    /* actual working range input */
+    .slider input[type="range"]{
+      position:absolute;
+      left:0;
+      top:14px;
+      width:100%;
+      height:40px;
+      margin:0;
+      background:transparent;
+      appearance:none;
+      -webkit-appearance:none;
+      cursor:pointer;
+      z-index:3;
+    }
+
+    .slider input[type="range"]:focus{
+      outline:none;
+    }
+
+    .slider input[type="range"]::-webkit-slider-runnable-track{
+      height:7px;
+      background:transparent;
+      border:none;
+    }
+
+    .slider input[type="range"]::-webkit-slider-thumb{
+      -webkit-appearance:none;
+      appearance:none;
+      width:30px;
+      height:30px;
+      border-radius:50%;
+      background:transparent;
+      border:none;
+      margin-top:-11.5px;
+    }
+
+    .slider input[type="range"]::-moz-range-track{
+      height:7px;
+      background:transparent;
+      border:none;
+    }
+
+    .slider input[type="range"]::-moz-range-thumb{
+      width:30px;
+      height:30px;
+      border-radius:50%;
+      background:transparent;
+      border:none;
+    }
+
     /* games */
     .grid-wrap{
       display:grid;
@@ -166,6 +232,7 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
       gap:8px;
       margin-top:20px;
     }
+
     .group{
       position:relative;
       background:rgba(255,255,255,.8);
@@ -173,6 +240,7 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
       padding:10px 8px 8px;
       border:1px solid rgba(220,232,247,.65);
     }
+
     .group.left{background:linear-gradient(180deg,#eaf5ff 0%, #e6f2ff 100%);}
     .group.right{background:linear-gradient(180deg,#fff6b3 0%, #fff3a3 100%);}
 
@@ -193,6 +261,7 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
       display:grid;
       gap:7px;
     }
+
     .option{
       display:flex;
       align-items:center;
@@ -205,6 +274,7 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
       box-shadow:0 1px 0 rgba(22,35,127,.02);
       cursor:pointer;
     }
+
     .option input{
       appearance:none;
       width:28px;
@@ -218,6 +288,7 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
       position:relative;
       flex:0 0 auto;
     }
+
     .option input::before{
       content:"";
       width:14px;
@@ -227,12 +298,15 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
       transition:transform .12s ease;
       background:#18c36f;
     }
+
     .option input:checked{
       border-color:#18c36f;
       box-shadow:inset 0 0 0 4px #fff;
       background:radial-gradient(circle at center, #18c36f 0 35%, #fff 36% 100%);
     }
+
     .option input:checked::before{transform:scale(1);}
+
     .option span{
       font-size:14px;
       font-weight:700;
@@ -245,6 +319,7 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
       text-align:center;
       background:transparent;
     }
+
     .clear-btn{
       display:inline-flex;
       align-items:center;
@@ -258,8 +333,17 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
       font-weight:800;
       min-width:140px;
       box-shadow:0 2px 0 rgba(0,0,0,.02);
+      cursor:pointer;
     }
-    .clear-btn svg{width:20px;height:20px;stroke:#15227f;stroke-width:2;fill:none;}
+
+    .clear-btn svg{
+      width:20px;
+      height:20px;
+      stroke:#15227f;
+      stroke-width:2;
+      fill:none;
+    }
+
     .links{
       display:flex;
       justify-content:center;
@@ -270,11 +354,13 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
       font-weight:800;
       font-size:15px;
     }
+
     .link-item{
       display:flex;
       align-items:center;
       gap:8px;
     }
+
     .link-icon{
       width:22px;height:22px;
       border:2px solid #17247f;
@@ -298,10 +384,20 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
       align-items:flex-start;
       font-size:13px;
       line-height:1.4;
+      cursor:pointer;
+      user-select:none;
     }
+
+    .notice input{
+      position:absolute;
+      opacity:0;
+      pointer-events:none;
+    }
+
     .checkbox{
       flex:0 0 auto;
-      width:26px;height:26px;
+      width:26px;
+      height:26px;
       border:1px solid #d0d8e9;
       border-radius:4px;
       background:#fff;
@@ -311,8 +407,31 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
       font-size:20px;
       font-weight:700;
       line-height:1;
+      position:relative;
+      margin-top:1px;
     }
-    .notice a{color:#1c83ff; text-decoration:underline;}
+
+    .checkbox::after{
+      content:"✓";
+      opacity:0;
+      transform:scale(.8);
+      transition:opacity .12s ease, transform .12s ease;
+    }
+
+    .notice input:checked + .checkbox::after{
+      opacity:1;
+      transform:scale(1);
+    }
+
+    .notice input:focus-visible + .checkbox{
+      outline:3px solid rgba(28,131,255,.25);
+      outline-offset:2px;
+    }
+
+    .notice a{
+      color:#1c83ff;
+      text-decoration:underline;
+    }
 
     .spacer{
       height:170px;
@@ -333,8 +452,10 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
       box-shadow:0 3px 16px rgba(22,35,127,.08);
       border:1px solid rgba(220,232,247,.8);
     }
+
     .quickpick svg{
-      width:20px;height:20px;
+      width:20px;
+      height:20px;
       stroke:#ff335f;
       stroke-width:2.3;
       fill:none;
@@ -353,8 +474,10 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
       gap:12px;
       box-shadow:0 3px 14px rgba(255,36,88,.18);
     }
+
     .checkout svg{
-      width:22px;height:22px;
+      width:22px;
+      height:22px;
       stroke:#fff;
       stroke-width:2.4;
       fill:none;
@@ -368,20 +491,34 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
     }
   </style>
 </head>
+
 <body>
   <main class="page">
     <div class="card">
       <section class="section">
         <h2>Set Your Wager</h2>
         <p class="subtitle">How much will you bet on each drawing?</p>
+
         <div class="wager-wrap">
           <div class="slider-row">
             <div class="minmax">$1</div>
+
             <div class="slider" aria-label="Wager slider">
-              <div class="track"></div>
-              <div class="bubble">$10</div>
-              <div class="thumb"></div>
+              <div class="track" id="track"></div>
+              <div class="bubble" id="bubble">$10</div>
+              <div class="thumb" id="thumb"></div>
+
+              <input
+                id="wagerSlider"
+                type="range"
+                min="1"
+                max="20"
+                value="10"
+                step="1"
+                aria-label="Wager amount"
+              />
             </div>
+
             <div class="minmax">$20</div>
           </div>
         </div>
@@ -419,7 +556,7 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
     </div>
 
     <section class="actions">
-      <button class="clear-btn" type="button" aria-label="Clear selection">
+      <button class="clear-btn" type="button" aria-label="Clear selection" id="clearBtn">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M4 7h16M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7m-8 0 1 12a1.5 1.5 0 0 0 1.5 1.4h5A1.5 1.5 0 0 0 16 19L17 7M10 11v6M14 11v6"/>
         </svg>
@@ -431,10 +568,14 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
         <div class="link-item"><span class="link-icon">?</span>FAQ</div>
       </div>
 
-      <div class="notice">
-        <div class="checkbox">✓</div>
-        <div>I understand there is no guarantee that I will be entered into any particular drawing. <a href="#">Learn more.</a></div>
-      </div>
+      <label class="notice">
+        <input type="checkbox" id="acknowledge" />
+        <span class="checkbox" aria-hidden="true"></span>
+        <span class="notice-text">
+          I understand there is no guarantee that I will be entered into any particular drawing.
+          <a href="#">Learn more.</a>
+        </span>
+      </label>
 
       <div class="spacer"></div>
 
@@ -454,5 +595,42 @@ f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){retu
       </div>
     </section>
   </main>
+
+  <script>
+    const slider = document.getElementById('wagerSlider');
+    const bubble = document.getElementById('bubble');
+    const thumb = document.getElementById('thumb');
+    const track = document.getElementById('track');
+    const clearBtn = document.getElementById('clearBtn');
+    const acknowledge = document.getElementById('acknowledge');
+
+    function updateSliderUI() {
+      const min = Number(slider.min);
+      const max = Number(slider.max);
+      const value = Number(slider.value);
+      const percent = ((value - min) / (max - min)) * 100;
+
+      bubble.textContent = `$${value}`;
+      bubble.style.left = `${percent}%`;
+      thumb.style.left = `${percent}%`;
+      track.style.background = `linear-gradient(90deg, var(--green) 0 ${percent}%, #e2edf8 ${percent}% 100%)`;
+    }
+
+    slider.addEventListener('input', updateSliderUI);
+    window.addEventListener('resize', updateSliderUI);
+
+    clearBtn.addEventListener('click', () => {
+      slider.value = 10;
+      acknowledge.checked = false;
+
+      document.querySelectorAll('input[name="games"]').forEach((radio, index) => {
+        radio.checked = index === 0;
+      });
+
+      updateSliderUI();
+    });
+
+    updateSliderUI();
+  </script>
 </body>
-</html>
+</html>  
