@@ -1,0 +1,436 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Set Your Wager</title>
+  <style>
+    :root{
+      --bg:#eaf4ff;
+      --card:#ffffff;
+      --panel:#f4faff;
+      --navy:#16237f;
+      --muted:#6673b7;
+      --green:#18d48b;
+      --green-dark:#05c67a;
+      --light-green:#d6fbe8;
+      --border:#dce8f7;
+      --accent:#ff2458;
+      --blue:#2c7be5;
+      --soft-blue:#dff0ff;
+      --yellow-bg:#fff7b8;
+      --yellow:#ffd400;
+      --shadow:0 8px 24px rgba(22,35,127,.06);
+      --radius:12px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--bg);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color:var(--navy);
+    }
+
+    .page{
+      width:min(100%, 786px);
+      margin:0 auto;
+      padding:16px 20px 10px;
+    }
+
+    .card{
+      background:rgba(255,255,255,.72);
+      border:1px solid rgba(255,255,255,.65);
+      box-shadow:var(--shadow);
+      border-radius:12px;
+      padding:0;
+      overflow:hidden;
+    }
+
+    .section{
+      background:linear-gradient(180deg, rgba(246,250,255,.95), rgba(240,248,255,.9));
+      padding:18px 18px 16px;
+      border-bottom:1px solid rgba(220,232,247,.8);
+    }
+    .section:last-child{border-bottom:none;}
+
+    h2{
+      margin:0 0 6px 0;
+      font-size:14px;
+      line-height:1.2;
+      font-weight:800;
+      color:var(--navy);
+    }
+    .subtitle{
+      margin:0;
+      font-size:12px;
+      color:var(--muted);
+      line-height:1.45;
+    }
+
+    /* wager */
+    .wager-wrap{
+      margin-top:22px;
+      padding:0 14px 8px;
+    }
+    .slider-row{
+      display:grid;
+      grid-template-columns: 32px 1fr 38px;
+      align-items:center;
+      gap:14px;
+      margin-top:18px;
+    }
+    .minmax{
+      font-size:18px;
+      font-weight:800;
+      letter-spacing:-0.02em;
+      color:#0f2078;
+    }
+
+    .slider{
+      position:relative;
+      height:18px;
+    }
+    .track{
+      position:absolute;
+      left:0; right:0;
+      top:50%;
+      transform:translateY(-50%);
+      height:7px;
+      border-radius:999px;
+      background:linear-gradient(90deg, var(--green) 0 75%, #e2edf8 75% 100%);
+    }
+    .thumb{
+      position:absolute;
+      left:75%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      width:30px;
+      height:30px;
+      border-radius:50%;
+      background:var(--green);
+      box-shadow:0 4px 10px rgba(24,212,139,.35);
+    }
+    .bubble{
+      position:absolute;
+      left:75%;
+      top:-34px;
+      transform:translateX(-50%);
+      background:#9fd8ff;
+      color:#0f2078;
+      font-weight:800;
+      font-size:13px;
+      padding:8px 10px;
+      border-radius:5px;
+      box-shadow:0 4px 12px rgba(44,123,229,.12);
+    }
+    .bubble::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      bottom:-6px;
+      transform:translateX(-50%);
+      width:0; height:0;
+      border-left:6px solid transparent;
+      border-right:6px solid transparent;
+      border-top:7px solid #9fd8ff;
+    }
+
+    /* games */
+    .grid-wrap{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:8px;
+      margin-top:20px;
+    }
+    .group{
+      position:relative;
+      background:rgba(255,255,255,.8);
+      border-radius:12px;
+      padding:10px 8px 8px;
+      border:1px solid rgba(220,232,247,.65);
+    }
+    .group.left{background:linear-gradient(180deg,#eaf5ff 0%, #e6f2ff 100%);}
+    .group.right{background:linear-gradient(180deg,#fff6b3 0%, #fff3a3 100%);}
+
+    .badge{
+      position:absolute;
+      right:10px;
+      top:-15px;
+      background:var(--yellow);
+      color:#111;
+      font-size:12px;
+      font-weight:800;
+      padding:5px 10px;
+      border-radius:10px;
+      box-shadow:0 3px 10px rgba(0,0,0,.05);
+    }
+
+    .option-list{
+      display:grid;
+      gap:7px;
+    }
+    .option{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      height:40px;
+      background:#fff;
+      border:1px solid rgba(220,232,247,.95);
+      border-radius:10px;
+      padding:0 10px;
+      box-shadow:0 1px 0 rgba(22,35,127,.02);
+      cursor:pointer;
+    }
+    .option input{
+      appearance:none;
+      width:28px;
+      height:28px;
+      border:1.8px solid #9dc8ff;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      margin:0;
+      background:#fff;
+      position:relative;
+      flex:0 0 auto;
+    }
+    .option input::before{
+      content:"";
+      width:14px;
+      height:14px;
+      border-radius:50%;
+      transform:scale(0);
+      transition:transform .12s ease;
+      background:#18c36f;
+    }
+    .option input:checked{
+      border-color:#18c36f;
+      box-shadow:inset 0 0 0 4px #fff;
+      background:radial-gradient(circle at center, #18c36f 0 35%, #fff 36% 100%);
+    }
+    .option input:checked::before{transform:scale(1);}
+    .option span{
+      font-size:14px;
+      font-weight:700;
+      color:#111f7a;
+    }
+
+    /* controls */
+    .actions{
+      padding:22px 18px 16px;
+      text-align:center;
+      background:transparent;
+    }
+    .clear-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:11px 28px;
+      background:#fff;
+      border:2px solid #15227f;
+      border-radius:999px;
+      color:#15227f;
+      font-size:16px;
+      font-weight:800;
+      min-width:140px;
+      box-shadow:0 2px 0 rgba(0,0,0,.02);
+    }
+    .clear-btn svg{width:20px;height:20px;stroke:#15227f;stroke-width:2;fill:none;}
+    .links{
+      display:flex;
+      justify-content:center;
+      gap:34px;
+      align-items:center;
+      margin:28px 0 18px;
+      color:#17247f;
+      font-weight:800;
+      font-size:15px;
+    }
+    .link-item{
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .link-icon{
+      width:22px;height:22px;
+      border:2px solid #17247f;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      font-size:14px;
+      font-weight:900;
+      line-height:1;
+    }
+
+    .notice{
+      margin:0 0 14px;
+      background:#cbf9e1;
+      border:1px solid #1fcf89;
+      color:#14307c;
+      border-radius:8px;
+      padding:10px 10px 10px 11px;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      font-size:13px;
+      line-height:1.4;
+    }
+    .checkbox{
+      flex:0 0 auto;
+      width:26px;height:26px;
+      border:1px solid #d0d8e9;
+      border-radius:4px;
+      background:#fff;
+      display:grid;
+      place-items:center;
+      color:#16bf69;
+      font-size:20px;
+      font-weight:700;
+      line-height:1;
+    }
+    .notice a{color:#1c83ff; text-decoration:underline;}
+
+    .spacer{
+      height:170px;
+    }
+
+    .quickpick{
+      margin:0 0 12px;
+      background:#fff;
+      color:#ff335f;
+      border-radius:24px;
+      min-height:50px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      font-size:15px;
+      font-weight:800;
+      box-shadow:0 3px 16px rgba(22,35,127,.08);
+      border:1px solid rgba(220,232,247,.8);
+    }
+    .quickpick svg{
+      width:20px;height:20px;
+      stroke:#ff335f;
+      stroke-width:2.3;
+      fill:none;
+    }
+
+    .checkout{
+      background:var(--accent);
+      color:#fff;
+      font-size:18px;
+      font-weight:800;
+      border-radius:24px;
+      min-height:50px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      box-shadow:0 3px 14px rgba(255,36,88,.18);
+    }
+    .checkout svg{
+      width:22px;height:22px;
+      stroke:#fff;
+      stroke-width:2.4;
+      fill:none;
+    }
+
+    @media (max-width: 720px){
+      .page{padding:12px;}
+      .grid-wrap{grid-template-columns:1fr;}
+      .slider-row{grid-template-columns: 26px 1fr 34px;}
+      .spacer{height:100px;}
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="card">
+      <section class="section">
+        <h2>Set Your Wager</h2>
+        <p class="subtitle">How much will you bet on each drawing?</p>
+        <div class="wager-wrap">
+          <div class="slider-row">
+            <div class="minmax">$1</div>
+            <div class="slider" aria-label="Wager slider">
+              <div class="track"></div>
+              <div class="bubble">$10</div>
+              <div class="thumb"></div>
+            </div>
+            <div class="minmax">$20</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Number of Games</h2>
+        <p class="subtitle">Play the same numbers for up to 100 consecutive draws.</p>
+
+        <div class="grid-wrap">
+          <div class="group left">
+            <div class="option-list">
+              <label class="option"><input type="radio" name="games" checked><span>3</span></label>
+              <label class="option"><input type="radio" name="games"><span>5</span></label>
+              <label class="option"><input type="radio" name="games"><span>10</span></label>
+              <label class="option"><input type="radio" name="games"><span>20</span></label>
+              <label class="option"><input type="radio" name="games"><span>30</span></label>
+              <label class="option"><input type="radio" name="games"><span>40</span></label>
+            </div>
+          </div>
+
+          <div class="group right">
+            <div class="badge">10% Off</div>
+            <div class="option-list">
+              <label class="option"><input type="radio" name="games"><span>50</span></label>
+              <label class="option"><input type="radio" name="games"><span>60</span></label>
+              <label class="option"><input type="radio" name="games"><span>70</span></label>
+              <label class="option"><input type="radio" name="games"><span>80</span></label>
+              <label class="option"><input type="radio" name="games"><span>90</span></label>
+              <label class="option"><input type="radio" name="games"><span>100</span></label>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="actions">
+      <button class="clear-btn" type="button" aria-label="Clear selection">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 7h16M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7m-8 0 1 12a1.5 1.5 0 0 0 1.5 1.4h5A1.5 1.5 0 0 0 16 19L17 7M10 11v6M14 11v6"/>
+        </svg>
+        Clear
+      </button>
+
+      <div class="links">
+        <div class="link-item"><span class="link-icon">i</span>Rules</div>
+        <div class="link-item"><span class="link-icon">?</span>FAQ</div>
+      </div>
+
+      <div class="notice">
+        <div class="checkbox">✓</div>
+        <div>I understand there is no guarantee that I will be entered into any particular drawing. <a href="#">Learn more.</a></div>
+      </div>
+
+      <div class="spacer"></div>
+
+      <div class="quickpick">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/>
+        </svg>
+        Quick Pick
+      </div>
+
+      <div class="checkout">
+        Checkout
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 12h13"/>
+          <path d="M12 5l7 7-7 7"/>
+        </svg>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
